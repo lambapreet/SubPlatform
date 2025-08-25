@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import authenticate, login as auth_login   # fix: avoid conflict with view
+from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from .forms import UserForm
 
 
@@ -21,7 +21,7 @@ def register(request):
     return render(request, 'account/register.html', context)
 
 
-def login_view(request):   # fix: renamed to avoid clash
+def login_view(request):
     form = AuthenticationForm()
     
     if request.method == "POST":
@@ -34,12 +34,17 @@ def login_view(request):   # fix: renamed to avoid clash
             user = authenticate(request, username=username, password=password)
             
             if user is not None and user.is_writer is True:
-                auth_login(request, user)   # fix: call Django's login
-                return redirect('writer-dashbaord')
+                auth_login(request, user)
+                return redirect('writer-dashboard')   # ✅ fixed typo
             
             if user is not None and user.is_writer is False:
-                auth_login(request, user)   # fix: call Django's login
+                auth_login(request, user)
                 return redirect('client-dashboard')
             
     context = {"LoginForm": form}        
     return render(request, 'account/login.html', context)
+
+
+def logout_view(request):   # ✅ renamed to avoid clashing with django.contrib.auth.logout
+    auth_logout(request)
+    return redirect("login")

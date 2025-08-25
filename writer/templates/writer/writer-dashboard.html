@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Writer-dashboard</h1>
-</body>
-</html>
+{% extends "writer/navbar.html" %}
+
+{% block content %}
+
+    <div class="container bg-white shadow-md p-5 form-layout text-center">
+        <h1>Writer Dashboard</h1>
+        <h5> Welcome {{user.first_name}}</h5>
+
+    </div>
+    
+{% endblock content %}
