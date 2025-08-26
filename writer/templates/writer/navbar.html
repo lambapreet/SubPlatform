@@ -26,13 +26,17 @@
                     <a class="btn btn-secondary navbar-btn" href="{% url 'writer-dashboard' %}">Dashboard</a>
                 </li>
 
-                {% comment %} <li class="nav-item">
-                    <a class="btn btn-secondary navbar-btn" href="{% url '' %}">Create Article</a>
+                <li class="nav-item">
+                    <a class="btn btn-secondary navbar-btn" href="{% url 'create-article' %}">Create Article</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="btn btn-secondary navbar-btn" href="{% url '' %}">Articles</a>
+                    <a class="btn btn-secondary navbar-btn" href="{% url 'my-article' %}">Articles</a>
                 </li>
+
+                {% comment %} 
+
+                
 
                 <li class="nav-item">
                     <a class="btn btn-secondary navbar-btn" href="{% url '' %}">Account Management</a>
