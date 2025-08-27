@@ -5,4 +5,6 @@ urlpatterns = [
     path("writer-dashboard/", views.writer_dashboard, name="writer-dashboard"),
     path("create-article/", views.Create_article, name="create-article"),
     path("my-article", views.my_article, name="my-article"),
+    path("update-article/<str:pk>",views.update_article, name="update-article"),
+    path("delete-article/<str:pk>", views.delete_article, name="delete-article"),
 ]
