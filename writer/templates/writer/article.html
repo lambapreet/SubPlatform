@@ -7,6 +7,12 @@
             <h2>{{article.title}}</h2>
             {{article.content}}
             {{article.date_posted}}
+            
+            {% if article.is_premium == True %}
+                <strong>Premium</strong>
+            {% elif article.is_premium == False %}
+                <strong>Standard</strong>
+            {% endif %}
 
             <br><br>
             <a href="{% url 'update-article' article.id %}">Update Article</a>

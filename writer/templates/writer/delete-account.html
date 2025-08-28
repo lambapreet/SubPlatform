@@ -3,14 +3,14 @@
 
 {% block content %}
     <div class="container bg-white shadow-md p-5 form-layour">
-        <h2>Delete Article</h2>
-        <p>You may delete an article below: </p>
+        <h2>Delete Account</h2>
+        <p>You may delete your account below: </p>
         <br>
         <form action="" method="POST" autocomplete="off">
             {% csrf_token %}
 
             <button class="btn btn-danger" type="submit">Delete Article</button>
         </form>
-        <a href="{% url 'my-article' %}">Article</a>
+        <a href="{% url 'writer-dashboard' %}" >Dashboard</a>
     </div>
 {% endblock content %}
